@@ -2,7 +2,7 @@
 resource "aws_vpc" "vpc" {
   count = var.create_vpc ? 1 : 0
 
-  cidr_block       = var.primary_cidr
+  cidr_block       = var.cidr_block
   instance_tenancy = var.instance_tenancy
 
   tags = var.tags
