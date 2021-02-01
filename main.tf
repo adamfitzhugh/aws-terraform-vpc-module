@@ -15,7 +15,7 @@ resource "aws_subnet" "private_subnet" {
 
   availability_zone = var.azs[count.index]
   vpc_id            = aws_vpc.vpc[0].id
-  cidr_block        = var.web_server_subnets[count.index]
+  cidr_block        = var.private_subnets[count.index]
 
   tags = var.tags
 }
