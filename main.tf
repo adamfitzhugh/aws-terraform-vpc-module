@@ -14,7 +14,7 @@ resource "aws_subnet" "private_subnet" {
   count = var.create_vpc && length(var.private_subnets) > 0 ? length(var.private_subnets) : 0
 
   availability_zone = var.azs[count.index]
-  vpc_id            = aws_vpc.main_vpc[0].id
+  vpc_id            = aws_vpc.vpc[0].id
   cidr_block        = var.web_server_subnets[count.index]
 
   tags = var.tags
