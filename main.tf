@@ -12,7 +12,7 @@ resource "aws_vpc" "main_vpc" {
 resource "aws_subnet" "database_subnet" {
   count             = length(var.database_subnets)
   availability_zone = var.azs[count.index]
-  vpc_id            = aws_vpc.main_vpc.id
+  vpc_id            = aws_vpc.main_vpc[0].id
   cidr_block        = var.database_subnets[count.index]
 
   tags = {
@@ -24,7 +24,7 @@ resource "aws_subnet" "database_subnet" {
 resource "aws_subnet" "web_server_subnet" {
   count             = length(var.web_server_subnets)
   availability_zone = var.azs[count.index]
-  vpc_id            = aws_vpc.main_vpc.id
+  vpc_id            = aws_vpc.main_vpc[0].id
   cidr_block        = var.web_server_subnets[count.index]
 
   tags = {
