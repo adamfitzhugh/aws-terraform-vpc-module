@@ -17,7 +17,9 @@ resource "aws_subnet" "private_subnet" {
   vpc_id            = aws_vpc.vpc[0].id
   cidr_block        = var.private_subnets[count.index]
 
-  tags = var.tags
+  tags = {
+      "Name" = var.name
+    }
 }
 
 # Configure NACL
