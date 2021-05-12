@@ -25,8 +25,3 @@ resource "aws_subnet" "private_subnet" {
       "Name" = var.name
     }
 }
-
-# Configure NACL
-# Configure Route tables
-# Configure IGW
-# Configure NGW
